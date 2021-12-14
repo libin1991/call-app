@@ -6,6 +6,8 @@
 
 如果你在使用 `call-app` 的过程中，有好的想法或者发现了 bug，提 Issue 就行，作者会及时跟进。
 
+相关类似唤起库: [web-launch-app](https://github.com/jawidx/web-launch-app)
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
