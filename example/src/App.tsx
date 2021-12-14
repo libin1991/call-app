@@ -1,5 +1,5 @@
 import React from 'react';
-import CallApp from 'callapp-lib';
+import CallApp from './call-app/index.js';
 import './App.css';
 
 const option: any = {
@@ -99,6 +99,13 @@ function App() {
       <button
         onClick={() => {
           lib.open({ path: 'question/270839820/answer/477722658' });
+          console.log(lib.generateUniversalLink({
+            path: 'aaa',
+            param: { a: 1, b: 2 },
+            callback: () => {
+              console.log(11);
+            }
+          }));
         }}
       >
         callapp-lib 唤端

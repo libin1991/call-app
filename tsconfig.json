@@ -6,7 +6,7 @@
     "allowJs": false,
     "declaration": true,
     "types": ["node"],
-    "outDir": "dist/type",
+    "outDir": "example/src/call-app",
     "strict": true,
     "experimentalDecorators": true,
     "skipLibCheck": true

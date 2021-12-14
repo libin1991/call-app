@@ -3,7 +3,7 @@ import * as generate from './generate';
 import { evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen } from './evoke';
 import { CallappConfig, CallappOptions } from './types';
 
-class CallApp {
+export default class CallApp {
   private readonly options: CallappOptions & { timeout: number };
 
   // Create an instance of CallApp
@@ -129,4 +129,4 @@ class CallApp {
   }
 }
 
-export default CallApp;
+
