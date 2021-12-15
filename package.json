@@ -25,13 +25,10 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/suanmei/callapp-lib.git"
-  },
   "keywords": [
     "rollup",
     "callapp",
+    "call-app",
     "schema",
     "scheme",
     "universalLink",
@@ -39,13 +36,8 @@
     "native",
     "h5"
   ],
-  "author": {
-    "name": "suanmei",
-    "email": "code_lee@sina.com",
-    "url": "https://suanmei.github.com"
-  },
   "license": "MIT",
-  "homepage": "https://github.com/suanmei/callapp-lib#readme",
+  "homepage": "https://github.com/libin1991/call-app",
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/plugin-proposal-class-properties": "^7.10.1",
