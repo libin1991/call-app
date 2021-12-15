@@ -1,6 +1,6 @@
 {
-  "name": "callapp-lib",
-  "version": "3.5.1",
+  "name": "call-app",
+  "version": "0.0.1",
   "description": "call native webview from webpage",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -16,8 +16,9 @@
     "lint-eslint": "eslint --cache --ext .ts ./src",
     "check-types": "tsc --noEmit",
     "lint": "npm run lint-eslint & npm run check-types",
-    "declare-type": "tsc --emitDeclarationOnly",
-    "build": "npm run declare-type & rollup -c"
+    "declare-type": "tsc",
+    "build": "npm run declare-type",
+    "rollup": "rollup -c"
   },
   "husky": {
     "hooks": {
@@ -55,7 +56,7 @@
     "@babel/preset-typescript": "^7.10.1",
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
-    "@rollup/plugin-babel": "^5.0.3",
+    "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.0.1",
     "@types/node": "^14.14.34",
@@ -70,6 +71,7 @@
     "husky": "^1.1.1",
     "prettier": "^2.0.5",
     "rollup": "^2.15.0",
-    "typescript": "^3.9.5"
+    "rollup-plugin-ts": "^2.0.4",
+    "typescript": "^4.5.4"
   }
 }

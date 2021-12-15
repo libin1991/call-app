@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     /* Basic Options */
-    "target": "esnext",
-    "module": "commonjs",
+    "target": "ESNext",
+    "module": "ES2015",
     "allowJs": false,
     "declaration": true,
     "types": ["node"],
-    "outDir": "example/src/call-app",
+    "outDir": "./dist",
     "strict": true,
     "experimentalDecorators": true,
     "skipLibCheck": true
