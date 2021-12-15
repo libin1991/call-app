@@ -10,11 +10,13 @@ yarn-error.log
 .vs/
 *.njsproj
 *.sln
+*.MD
 .vscode/*
 !.vscode/settings.json
-
+example/
 examples/
 output/
-src/
+commitlint.config.js
 tsconfig.json
+rollup.config.js
 webpack.config.js

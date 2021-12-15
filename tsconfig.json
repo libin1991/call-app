@@ -6,7 +6,7 @@
     "allowJs": false,
     "declaration": true,
     "types": ["node"],
-    "outDir": "./dist",
+    "outDir": "./lib",
     "strict": true,
     "experimentalDecorators": true,
     "skipLibCheck": true

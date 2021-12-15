@@ -2,9 +2,9 @@
   "name": "call-app",
   "version": "0.0.1",
   "description": "call native webview from webpage",
-  "main": "dist/lib/index.cjs.js",
-  "module": "dist/lib/index.mjs.js",
-  "browser": "dist/lib/index.umd.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.mjs.js",
+  "browser": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "directories": {
     "dist": "dist"
