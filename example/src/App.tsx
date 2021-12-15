@@ -1,5 +1,7 @@
 import React from 'react';
-import CallApp, { Browser, generate, evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen, copy } from './lib/index.js';
+import CallApp, {
+  Browser, generate, evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen, copy
+} from './lib/index.js';
 import './App.css';
 
 const option: any = {
@@ -37,19 +39,19 @@ function evoke(url: string) {
   iFrame = null;
 }
 
-// function evokeByLocation(uri: string): void {
-//   window.location.href = uri;
-// }
+function evokeByLocationByTsx(uri: string): void {
+  window.location.href = uri;
+}
 
-// function evokeByTagA(uri: string): void {
-//   const tagA = document.createElement('a');
+function evokeByTagAByTsx(uri: string): void {
+  const tagA = document.createElement('a');
 
-//   tagA.setAttribute('href', uri);
-//   tagA.style.display = 'none';
-//   document.body.append(tagA);
+  tagA.setAttribute('href', uri);
+  tagA.style.display = 'none';
+  document.body.append(tagA);
 
-//   tagA.click();
-// }
+  tagA.click();
+}
 
 function App() {
   return (
@@ -70,21 +72,21 @@ function App() {
       </button>
       <button
         onClick={() => {
-          evokeByLocation('zhihu://question/270839820');
+          evokeByLocationByTsx('zhihu://question/270839820');
         }}
       >
         schema - location
       </button>
       <button
         onClick={() => {
-          evokeByTagA('zhihu://question/270839820');
+          evokeByTagAByTsx('zhihu://question/270839820');
         }}
       >
         schema - A Tag
       </button>
       <button
         onClick={() => {
-          evokeByLocation(lib.generateIntent({ path: '' }));
+          evokeByLocationByTsx(lib.generateIntent({ path: '' }));
         }}
       >
         intent - location
@@ -98,7 +100,7 @@ function App() {
       </button>
       <button
         onClick={() => {
-          // lib.open({path: 'question/270839820/answer/477722658' });
+          lib.open({ path: 'question/270839820/answer/477722658' });
           console.log(lib.generateUniversalLink({
             path: 'aaa',
             param: { a: 1, b: 2 },
@@ -106,7 +108,7 @@ function App() {
               console.log(11);
             }
           }));
-          copy('11111');
+          copy('11111');    // 剪贴板
           console.log({ Browser, generate, evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen })
         }}
       >

@@ -2,6 +2,7 @@ import * as Browser from './browser';
 import * as generate from './generate';
 import { evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen } from './evoke';
 import { CallappConfig, CallappOptions } from './types';
+import copy from './copy';
 export default class CallApp {
     private readonly options;
     constructor(options: CallappOptions);
@@ -23,4 +24,4 @@ export default class CallApp {
      */
     open(config: CallappConfig): void;
 }
-export { Browser, generate, evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen, CallappConfig, CallappOptions };
+export { Browser, generate, evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen, CallappConfig, CallappOptions, copy };
