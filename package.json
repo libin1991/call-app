@@ -2,10 +2,10 @@
   "name": "call-app",
   "version": "0.0.1",
   "description": "call native webview from webpage",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.umd.js",
-  "types": "dist/type/index.d.ts",
+  "main": "dist/lib/index.cjs.js",
+  "module": "dist/lib/index.mjs.js",
+  "browser": "dist/lib/index.umd.js",
+  "types": "dist/index.d.ts",
   "directories": {
     "dist": "dist"
   },
@@ -17,8 +17,7 @@
     "check-types": "tsc --noEmit",
     "lint": "npm run lint-eslint & npm run check-types",
     "declare-type": "tsc",
-    "build": "npm run declare-type",
-    "rollup": "rollup -c"
+    "build": "npm run declare-type && rollup -c"
   },
   "husky": {
     "hooks": {
