@@ -130,3 +130,5 @@ export default class CallApp {
 }
 
 
+export { Browser, generate, evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen, CallappConfig, CallappOptions }
+
