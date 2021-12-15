@@ -1,6 +1,3 @@
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateYingYongBao = exports.generateUniversalLink = exports.generateIntent = exports.generateScheme = exports.buildScheme = void 0;
 // 根据 param 生成 queryString
 function generateQS(param) {
     const qs = typeof param !== 'undefined'
@@ -11,7 +8,7 @@ function generateQS(param) {
     return qs ? `?${qs}` : '';
 }
 // 生成基本的 url scheme
-function buildScheme(config, options) {
+export function buildScheme(config, options) {
     const { path, param } = config;
     const { scheme, buildScheme: customBuildScheme } = options;
     if (typeof customBuildScheme !== 'undefined') {
@@ -23,9 +20,8 @@ function buildScheme(config, options) {
     const qs = generateQS(param);
     return `${protocol}://${hostPort}${path}${qs}`;
 }
-exports.buildScheme = buildScheme;
 // 生成业务需要的 url scheme（区分是否是外链）
-function generateScheme(config, options) {
+export function generateScheme(config, options) {
     const { outChain } = options;
     let uri = buildScheme(config, options);
     if (typeof outChain !== 'undefined' && outChain) {
@@ -34,9 +30,8 @@ function generateScheme(config, options) {
     }
     return uri;
 }
-exports.generateScheme = generateScheme;
 // 生成 android intent
-function generateIntent(config, options) {
+export function generateIntent(config, options) {
     const { outChain } = options;
     const { intent, fallback } = options;
     if (typeof intent === 'undefined')
@@ -52,9 +47,8 @@ function generateIntent(config, options) {
     urlPath = urlPath.slice(urlPath.indexOf('//') + 2);
     return `intent://${urlPath}${intentTail}`;
 }
-exports.generateIntent = generateIntent;
 // 生成 universalLink
-function generateUniversalLink(config, options) {
+export function generateUniversalLink(config, options) {
     const { universal } = options;
     if (typeof universal === 'undefined')
         return '';
@@ -65,11 +59,9 @@ function generateUniversalLink(config, options) {
     const oldUniversalLink = `https://${host}?${pathKey}=${path}${qs.replace('?', '&')}`;
     return pathKey ? oldUniversalLink : newUniversalLink;
 }
-exports.generateUniversalLink = generateUniversalLink;
 // 生成 应用宝链接
-function generateYingYongBao(config, options) {
+export function generateYingYongBao(config, options) {
     const url = generateScheme(config, options);
     // 支持 AppLink
     return `${options.yingyongbao}&android_schema=${encodeURIComponent(url)}`;
 }
-exports.generateYingYongBao = generateYingYongBao;

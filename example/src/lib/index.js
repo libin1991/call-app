@@ -1,9 +1,8 @@
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const Browser = require("./browser");
-const generate = require("./generate");
-const evoke_1 = require("./evoke");
-class CallApp {
+import * as Browser from './browser';
+import * as generate from './generate';
+import { evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen } from './evoke';
+import copy from './copy';
+export default class CallApp {
     options;
     // Create an instance of CallApp
     constructor(options) {
@@ -28,7 +27,7 @@ class CallApp {
     }
     checkOpen(failure) {
         const { logFunc, timeout } = this.options;
-        return (0, evoke_1.checkOpen)(() => {
+        return checkOpen(() => {
             if (typeof logFunc !== 'undefined') {
                 logFunc('failure');
             }
@@ -38,13 +37,13 @@ class CallApp {
     // 唤端失败跳转 app store
     fallToAppStore() {
         this.checkOpen(() => {
-            (0, evoke_1.evokeByLocation)(this.options.appstore);
+            evokeByLocation(this.options.appstore);
         });
     }
     // 唤端失败跳转通用(下载)页
     fallToFbUrl() {
         this.checkOpen(() => {
-            (0, evoke_1.evokeByLocation)(this.options.fallback);
+            evokeByLocation(this.options.fallback);
         });
     }
     // 唤端失败调用自定义回调函数
@@ -73,40 +72,40 @@ class CallApp {
             // ios 微博禁止了 universalLink
             if ((Browser.isWechat && Browser.semverCompare(Browser.getWeChatVersion(), '7.0.5') === -1) ||
                 Browser.isWeibo) {
-                (0, evoke_1.evokeByLocation)(appstore);
+                evokeByLocation(appstore);
             }
             else if (Browser.getIOSVersion() < 9) {
-                (0, evoke_1.evokeByIFrame)(schemeURL);
+                evokeByIFrame(schemeURL);
                 checkOpenFall = this.fallToAppStore;
             }
             else if (!supportUniversal || Browser.isQQ || Browser.isQQBrowser || Browser.isQzone) {
-                (0, evoke_1.evokeByTagA)(schemeURL);
+                evokeByTagA(schemeURL);
                 checkOpenFall = this.fallToAppStore;
             }
             else {
-                (0, evoke_1.evokeByLocation)(this.generateUniversalLink(config));
+                evokeByLocation(this.generateUniversalLink(config));
             }
             // Android
             // 在微信中且配置了应用宝链接
         }
         else if (Browser.isWechat && typeof this.options.yingyongbao !== 'undefined') {
-            (0, evoke_1.evokeByLocation)(this.generateYingYongBao(config));
+            evokeByLocation(this.generateYingYongBao(config));
         }
         else if (Browser.isOriginalChrome) {
             if (typeof intent !== 'undefined') {
-                (0, evoke_1.evokeByLocation)(this.generateIntent(config));
+                evokeByLocation(this.generateIntent(config));
             }
             else {
                 // scheme 在 andriod chrome 25+ 版本上iframe无法正常拉起
-                (0, evoke_1.evokeByLocation)(schemeURL);
+                evokeByLocation(schemeURL);
                 checkOpenFall = this.fallToFbUrl;
             }
         }
         else if (Browser.isWechat || Browser.isBaidu || Browser.isWeibo || Browser.isQzone) {
-            (0, evoke_1.evokeByLocation)(this.options.fallback);
+            evokeByLocation(this.options.fallback);
         }
         else {
-            (0, evoke_1.evokeByIFrame)(schemeURL);
+            evokeByIFrame(schemeURL);
             checkOpenFall = this.fallToFbUrl;
         }
         if (typeof callback !== 'undefined') {
@@ -118,4 +117,4 @@ class CallApp {
         checkOpenFall.call(this);
     }
 }
-exports.default = CallApp;
+export { Browser, generate, evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen, copy };

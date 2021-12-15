@@ -1,6 +1,3 @@
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkOpen = exports.evokeByIFrame = exports.evokeByTagA = exports.evokeByLocation = void 0;
 let hidden;
 let visibilityChange;
 let iframe;
@@ -34,15 +31,14 @@ function isPageHidden() {
  * 通过 top.location.href 跳转
  * @param {string}} [uri] - 需要打开的地址
  */
-function evokeByLocation(uri) {
+export function evokeByLocation(uri) {
     window.top.location.href = uri;
 }
-exports.evokeByLocation = evokeByLocation;
 /**
  * 通过 A 标签唤起
  * @param {string} uri - 需要打开的地址
  */
-function evokeByTagA(uri) {
+export function evokeByTagA(uri) {
     const tagA = document.createElement('a');
     tagA.setAttribute('href', uri);
     tagA.style.display = 'none';
@@ -51,12 +47,11 @@ function evokeByTagA(uri) {
     document.body.appendChild(tagA);
     tagA.click();
 }
-exports.evokeByTagA = evokeByTagA;
 /**
  * 通过 iframe 唤起
  * @param {string} [uri] - 需要打开的地址
  */
-function evokeByIFrame(uri) {
+export function evokeByIFrame(uri) {
     if (!iframe) {
         iframe = document.createElement('iframe');
         iframe.style.cssText = 'display:none;border:0;width:0;height:0;';
@@ -64,13 +59,12 @@ function evokeByIFrame(uri) {
     }
     iframe.src = uri;
 }
-exports.evokeByIFrame = evokeByIFrame;
 /**
  * 检测是否唤端成功
  * @param cb - 唤端失败回调函数
  * @param timeout
  */
-function checkOpen(failure, timeout) {
+export function checkOpen(failure, timeout) {
     const timer = setTimeout(() => {
         const pageHidden = isPageHidden();
         if (!pageHidden) {
@@ -88,4 +82,3 @@ function checkOpen(failure, timeout) {
         });
     }
 }
-exports.checkOpen = checkOpen;

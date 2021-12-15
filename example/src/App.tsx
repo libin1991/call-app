@@ -1,5 +1,5 @@
 import React from 'react';
-import CallApp from './call-app/index.js';
+import CallApp, { Browser, generate, evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen, copy } from './lib/index.js';
 import './App.css';
 
 const option: any = {
@@ -37,19 +37,19 @@ function evoke(url: string) {
   iFrame = null;
 }
 
-function evokeByLocation(uri: string): void {
-  window.location.href = uri;
-}
+// function evokeByLocation(uri: string): void {
+//   window.location.href = uri;
+// }
 
-function evokeByTagA(uri: string): void {
-  const tagA = document.createElement('a');
+// function evokeByTagA(uri: string): void {
+//   const tagA = document.createElement('a');
 
-  tagA.setAttribute('href', uri);
-  tagA.style.display = 'none';
-  document.body.append(tagA);
+//   tagA.setAttribute('href', uri);
+//   tagA.style.display = 'none';
+//   document.body.append(tagA);
 
-  tagA.click();
-}
+//   tagA.click();
+// }
 
 function App() {
   return (
@@ -98,7 +98,7 @@ function App() {
       </button>
       <button
         onClick={() => {
-          lib.open({ path: 'question/270839820/answer/477722658' });
+          // lib.open({path: 'question/270839820/answer/477722658' });
           console.log(lib.generateUniversalLink({
             path: 'aaa',
             param: { a: 1, b: 2 },
@@ -106,11 +106,13 @@ function App() {
               console.log(11);
             }
           }));
+          copy('11111');
+          console.log({ Browser, generate, evokeByLocation, evokeByTagA, evokeByIFrame, checkOpen })
         }}
       >
         callapp-lib 唤端
       </button>
-    </div>
+    </div >
   );
 }
 
