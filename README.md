@@ -6,7 +6,15 @@
 
 如果你在使用 `call-app` 的过程中，有好的想法或者发现了 bug，提 Issue 就行，作者会及时跟进。
 
-相关类似唤起库: [web-launch-app](https://github.com/jawidx/web-launch-app)
+相关类似唤起库: [web-launch-app](https://github.com/jawidx/web-launch-app)hangge
+
+## changeList
+- 增加剪贴功能
+- 口令
+
+## 微信唤起
+- https://blog.csdn.net/qq_36135258/article/details/119941225
+- https://blog.csdn.net/lingyang999/article/details/118943988
 
 ## Install
 
